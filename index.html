@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning vue</title>
+    <link rel="stylesheet" href="app.css" />
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+  </head>
+
+  <body>
+    <h1>Books World</h1>
+
+    <div id="app">
+      <!-- attribute Binding -->
+
+      <div v-if="showbooks">
+        <ul>
+          <li
+            v-for="book in filteredBooks"
+            :class="{ fav: book.isFav }"
+            @click="toggleFav(book)"
+          >
+            <img :src="book.img" :alt="book.title" />
+
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- <button v-on:click ="age++">increase age</button>
+    <button v-on:click ="age--">decrease age</button>
+
+    <div @click="changeTitle">Change Book Title</div> -->
+
+      <button class="button-85" role="button" @click="toggleshowbooks">
+        <span v-if="showbooks">Hide Books</span>
+        <span v-else>Show Books</span>
+      </button>
+      <br />
+      <!-- Mouse Events -->
+      <!-- <div class="box" @mouseover="handleEvent">mouse over</div>
+      <div class="box" @mouseleave="handleEvent">mouse leave</div>
+      <div class="box" @dblclick="handleEvent">Double click</div> -->
+      <div class="box" @mousemove="handlemousemove">Position - {{x}} {{y}}</div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
